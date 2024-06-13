@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NLP to SQL</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1 class="ai-title">NLP to SQL</h1>
+    <div class="main-container">
+        <form class="schema-input">
+            <textarea id="schemaInput" class="form-control input-text" name="message" placeholder="Type Your Schema Here" maxlength="100000"></textarea>
+            <input id="schemaButtonInput" class="btn btn-primary input-button" type="submit" value="Send">
+        </form>
+        <div class="chat-container" id="chat-container-id">
+            <div class="chat-box" id="chat-box-id">
+                <!-- Include chat messages here -->
+            </div>
+            <div class="input-area">
+                <div class="executed-query" id="executed-query-id">
+                    <textarea id="textInput" class="form-control input-text" name="message" placeholder="Type Your Message Here" maxlength="5000"></textarea>
+                    <button id="generateQueryButton" class="btn btn-primary input-button">Generate Query</button>
+                </div>
+                <form class="user-input">
+                    <textarea id="executed-query-content" class="form-control input-text" placeholder="Generated Query" readonly></textarea>
+                    <button id="executeQueryButton" class="btn btn-primary input-button">Execute Query</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
