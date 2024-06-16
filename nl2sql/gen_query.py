@@ -1,7 +1,9 @@
 import requests
 import json
-import config
-from extract_sql import *
+
+from nl2sql import config
+from nl2sql.extract_sql import *
+
 
 OPENROUTER_API_KEY = config.API_KEY
 

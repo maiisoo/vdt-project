@@ -10,6 +10,8 @@ services:
     image: bitnami/spark:latest
     container_name: spark-master
     hostname: spark-master
+    networks:
+      - vdt-project
     ports:
       - '8080:8080'
       - '7077:7077'
@@ -39,6 +41,8 @@ services:
     image: bitnami/spark:latest
     container_name: spark-worker-1
     hostname: spark-worker-1
+    networks:
+      - vdt-project
     depends_on:
       - spark-master
     ports:
@@ -71,6 +75,8 @@ services:
   namenode:
     image: bde2020/hadoop-namenode:2.0.0-hadoop2.7.4-java8
     container_name: namenode
+    networks:
+      - vdt-project
     volumes:
       - namenode:/hadoop/dfs/name
     environment:
@@ -82,6 +88,8 @@ services:
   datanode:
     image: bde2020/hadoop-datanode:2.0.0-hadoop2.7.4-java8
     container_name: datanode
+    networks:
+      - vdt-project
     volumes:
       - datanode:/hadoop/dfs/data
     env_file:
@@ -93,6 +101,8 @@ services:
   hive-server:
     image: bde2020/hive:2.3.2-postgresql-metastore
     container_name: hive-server
+    networks:
+      - vdt-project
     env_file:
       - ./config/hadoop.env
     environment:
@@ -103,6 +113,8 @@ services:
   hive-metastore:
     image: bde2020/hive:2.3.2-postgresql-metastore
     container_name: hive-metastore
+    networks:
+      - vdt-project
     env_file:
       - ./config/hadoop.env
     command: /opt/hive/bin/hive --service metastore
@@ -113,6 +125,8 @@ services:
   hive-metastore-postgresql:
     image: bde2020/hive-metastore-postgresql:2.3.0
     container_name: hive-metastore-postgresql
+    networks:
+      - vdt-project
 
   nifi:
     cap_add:

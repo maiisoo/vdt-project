@@ -20,8 +20,6 @@ def generate_query():
     if not query:
         return jsonify({"error": "No query generated"}), 400
 
-    print(query)
-
     return jsonify({"query": query}), 200
 
 

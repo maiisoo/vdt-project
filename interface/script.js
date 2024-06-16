@@ -5,13 +5,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const executedQueryContent = document.getElementById("executed-query-content");
     const chatBox = document.getElementById("chat-box-id");
 
-    let schemaContext = null;
-
-    schemaButton.addEventListener("click", function(event) {
-        event.preventDefault();
-        schemaContext = document.getElementById("schemaInput").value;
-        console.log("Schema submitted:", schemaContext);
-    });
 
     generateQueryButton.addEventListener("click", function(event) {
         event.preventDefault();
@@ -22,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ question: questionContent, schema: schemaContext })
+            body: JSON.stringify({ question: questionContent })
         })
         .then(response => {
             if (!response.ok) {
